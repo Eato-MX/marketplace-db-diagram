@@ -192,7 +192,7 @@ Table market.variant_taxes {
     id UUID [pk, default: `uuid_generate_v4()`]
     active bool [default: true]
     // relations
-    product_id UUID [ref: > market.product.id]
+    product_id UUID [ref: > market.products.id]
     tax_id int [ref: > market.taxes.id]
 }
 
