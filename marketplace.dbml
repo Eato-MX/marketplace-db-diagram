@@ -187,6 +187,16 @@ Table market.products {
 
 }
 
+// Product taxes
+Table market.variant_taxes {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    active bool [default: true]
+    // relations
+    product_id UUID [ref: > market.product.id]
+    tax_id int [ref: > market.taxes.id]
+}
+
+
 /*****************************************************************************************
 *                                     Providers data                                     *
 *****************************************************************************************/
@@ -266,18 +276,6 @@ Table market.variant_prices {
     active bool [default: true]
     // relations
     variant_id UUID [ref: > market.variants.id]
-}
-
-// Variant taxes
-Table market.variant_taxes {
-    id UUID [pk, default: `uuid_generate_v4()`]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    active bool [default: true]
-    // relations
-    variant_id UUID [ref: > market.variants.id]
-    tax_id int [ref: > market.taxes.id]
 }
 
 /*****************************************************************************************
