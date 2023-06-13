@@ -225,6 +225,18 @@ Table restaurant.areas {
     restaurant_id UUID [ref: > restaurant.restaurants.id]
 }
 
+// Restaurant Menu sections
+Table restaurant.menu_sections {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    name varchar(128) [not null]
+    created_at timetz [default: `now()`]
+    updated_at timetz [default: `now()`]
+    deleted_at timetz [null]
+    active bool [default: true]
+    // relations
+    restaurant_id UUID [not null, ref: > restaurant.restaurants.id]
+}
+
 // Restaurant shopping list
 Table restaurant.shopping_lists {
     id UUID [pk, default: `uuid_generate_v4()`]
@@ -323,6 +335,7 @@ Table restaurant.recipes {
     // relations
     status_id int [ref: > restaurant.recipes_status.id]
     area_id UUID [ref: > restaurant.areas.id]
+    section_id UUID [ref: > restaurant.menu_sections.id]
 }
 
 // Recipe items
