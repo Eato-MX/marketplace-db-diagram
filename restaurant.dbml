@@ -161,6 +161,7 @@ Table restaurant.warehouses {
 Table restaurant.warehouse_slots {
     id UUID [pk, default: `uuid_generate_v4()`]
     product_name varchar(128) [not null]
+    yield decimal(12,6) [not null] // rendimiento que se le asigna al producto
     product_id UUID [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
@@ -215,7 +216,7 @@ Table restaurant.restaurants {
 // Restaurant Areas
 Table restaurant.areas {
     id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(128) [not null]
+    name varchar(64) [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
@@ -228,7 +229,7 @@ Table restaurant.areas {
 // Restaurant Menu sections
 Table restaurant.menu_sections {
     id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(128) [not null]
+    name varchar(64) [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
@@ -240,7 +241,7 @@ Table restaurant.menu_sections {
 // Restaurant shopping list
 Table restaurant.shopping_lists {
     id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(128) [not null]
+    name varchar(64) [not null]
     description varchar(128) [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
@@ -336,6 +337,7 @@ Table restaurant.recipes {
     status_id int [ref: > restaurant.recipes_status.id]
     area_id UUID [ref: > restaurant.areas.id]
     section_id UUID [ref: > restaurant.menu_sections.id]
+    restaurant_id UUID [ref: > restaurant.restaurants.id]
 }
 
 // Recipe items
