@@ -211,6 +211,7 @@ Table restaurant.restaurants {
     delivery_address_id UUID [ref: > restaurant.addresses.id]
     country_id UUID [ref: > restaurant.countries.id]
 }
+// Ref restaurants_users: restaurant.restaurants.id > restaurant.users.id
 
 // Restaurant Areas
 Table restaurant.areas {
@@ -348,11 +349,11 @@ Table restaurant.recipe_items {
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
     active bool [default: true]
+    product_id UUID // ID del producto, se obtiene de la API de Marketplace
     // relations
     subrecipe_id UUID [ref: > restaurant.subrecipes.id] // Un item puede ser una subreceta
-    product_id UUID [ref: > restaurant.products.id] // Un item puede ser un producto
-    recipe_id UUID [nut null, ref: > restaurant.recipes.id]
-    measurement_unit_id int [nut null, ref: > restaurant.measurement_units.id]
+    recipe_id UUID [not null, ref: > restaurant.recipes.id] // ID de la receta a la que pertenece
+    measurement_unit_id int [not null, ref: > restaurant.measurement_units.id]
 }
 
 // Subrecipes
