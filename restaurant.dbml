@@ -77,7 +77,6 @@ Table restaurant.measurement_units {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
     description varchar(128) [not null]
-    clave varchar(8) [not null, Note: 'SAT meassurment unit code']
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
@@ -345,23 +344,24 @@ Table restaurant.recipe_items {
     id UUID [pk, default: `uuid_generate_v4()`]
     quantity decimal(12,6) [not null]
     name varchar(128) [not null]
-    product_id UUID [not null]
-
-
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
     active bool [default: true]
     // relations
-    recipe_id UUID [ref: > restaurant.recipes.id]
-    measurement_unit_id int [ref: > restaurant.measurement_units.id]
+    subrecipe_id UUID [ref: > restaurant.subrecipes.id] // Un item puede ser una subreceta
+    product_id UUID [ref: > restaurant.products.id] // Un item puede ser un producto
+    recipe_id UUID [nut null, ref: > restaurant.recipes.id]
+    measurement_unit_id int [nut null, ref: > restaurant.measurement_units.id]
 }
 
 // Subrecipes
 Table restaurant.subrecipes {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    yield decimal(12,6) [not null]
     // relations
+    meassurment_unit_id int [ref: > restaurant.measurement_units.id]
     recipe_id UUID [ref: > restaurant.recipes.id]
-    subrecipe_id UUID [ref: > restaurant.recipes.id]
 }
 
 /*****************************************************************************************
