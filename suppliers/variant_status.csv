@@ -1,0 +1,6 @@
+id,name,description,created_at,updated_at,deleted_at,is_deleted
+1737ec49-ca2e-4b8c-ac71-e270411fc943,approved,Aprobado,03:40:00.968483+00,03:40:00.968483+00,NULL,False
+b2f1cc6a-d844-4380-82b9-2a83adb3b286,in-review,En revisión,03:40:00.968483+00,03:40:00.968483+00,NULL,False
+88919346-247e-4aab-9065-67129b9b438a,approved,Aprobado,03:40:00.968483+00,03:40:00.968483+00,NULL,False
+0999de89-2853-421b-8367-dbecbc00f873,published,Publicado,03:40:00.968483+00,03:40:00.968483+00,NULL,False
+00d54a77-fe02-4201-afe2-8e212c39c96d,approved,Aprobado,03:40:00.968483+00,03:40:00.968483+00,NULL,False
