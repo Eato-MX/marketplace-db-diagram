@@ -265,10 +265,9 @@ Table variants {
     id UUID [pk, default: `uuid_generate_v4()`]
     _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     external_id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
-    name varchar(128) [not null]
-    display_name varchar(128) [not null]
-    description varchar(255) [not null]
-    brand varchar(128) [not null]
+    description varchar(255) [null]
+    brand varchar(128) [null]
+    in_stock bool [default: true, Note: 'Indica si el proveedor tiene producto en stock']
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
@@ -277,19 +276,13 @@ Table variants {
     status_id UUID [ref: > variant_status.id]
     provider_id UUID [ref: > providers.id]
     country_id UUID [ref: > countries.id]
+    product_id UUID [ref: > products.id]
     //indexes
     indexes{
       (_id)[unique]
     }
 }
 Ref: variants.id <> variant_tags.id
-
-// Product variant
-Table product_variants {
-    // relations
-    product_id UUID [ref: > products.id]
-    variant_id UUID [ref: > variants.id]
-}
 
 // Variant presentation
 Table variant_presentations {
