@@ -146,6 +146,16 @@ Table variant_tags {
     is_deleted bool [default: false]
 }
 
+// Brands
+Table Brands {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    Name varchar(128) [null]
+    created_at timetz [default: `now()`]
+    updated_at timetz [default: `now()`]
+    deleted_at timetz [null]
+    is_deleted bool [default: false]
+}
+
 /*****************************************************************************************
 *                                        Products                                        *
 *****************************************************************************************/
@@ -194,6 +204,7 @@ Table products {
     section_id UUID [ref: > sections.id]
     status_id UUID [ref: > product_status.id]
     class_id UUID [ref: > sat_classes.id]
+    display_unit_id UUID [ref: > measurement_units.id]
     //indexes
     indexes{
       (_id)[unique]
@@ -266,33 +277,25 @@ Table variants {
     _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     external_id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     description varchar(255) [null]
-    brand varchar(128) [null]
+    content decimal(12,6) [not null]
     in_stock bool [default: true, Note: 'Indica si el proveedor tiene producto en stock']
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
     is_deleted bool [default: false]
     // relations
+    content_unit_id UUID [ref: > measurement_units.id]
     status_id UUID [ref: > variant_status.id]
     provider_id UUID [ref: > providers.id]
     country_id UUID [ref: > countries.id]
     product_id UUID [ref: > products.id]
+    brand_id UUID [ref: > brands.id]
     //indexes
     indexes{
       (_id)[unique]
     }
 }
 Ref: variants.id <> variant_tags.id
-
-// Variant presentation
-Table variant_presentations {
-    content decimal(12,6) [not null]
-    // relations
-    variant_id UUID [ref: > variants.id]
-    display_unit_id UUID [ref: > measurement_units.id]
-    content_unit_id UUID [ref: > measurement_units.id]
-
-}
 
 // Variant prices (History)
 Table variant_prices {
