@@ -211,6 +211,14 @@ Table products {
     }
 }
 
+// Product fill directions
+Table product_fill_directions {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    directions varchar [not null]
+    // relations
+    product_id UUID [ref: > products.id]
+}
+
 // Product averages
 Table products_averages {
     id UUID [pk, default: `uuid_generate_v4()`]
