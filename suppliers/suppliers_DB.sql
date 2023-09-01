@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "taxes" (
+CREATE TABLE "taxes" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "sat_code" varchar(8) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS "taxes" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "sat_classes" (
+CREATE TABLE "sat_classes" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "clave" varchar(94) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS "sat_classes" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "product_status" (
+CREATE TABLE "product_status" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "description" varchar(64) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS "product_status" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "provider_status" (
+CREATE TABLE "provider_status" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "description" varchar(64) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS "provider_status" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "variant_status" (
+CREATE TABLE "variant_status" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "description" varchar(64) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS "variant_status" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "order_status" (
+CREATE TABLE "order_status" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "description" varchar(64) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS "order_status" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "client_status" (
+CREATE TABLE "client_status" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "description" varchar(64) NOT NULL,
@@ -71,11 +71,10 @@ CREATE TABLE IF NOT EXISTS "client_status" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "measurement_units" (
+CREATE TABLE "measurement_units" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "_id" varchar(24),
   "name" varchar(94) NOT NULL,
-  "description" varchar(128) NOT NULL,
   "code" varchar(64) NOT NULL,
   "sat_code" varchar(64),
   "magnitude" varchar(24) NOT NULL,
@@ -86,7 +85,7 @@ CREATE TABLE IF NOT EXISTS "measurement_units" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "countries" (
+CREATE TABLE "countries" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(100) NOT NULL,
   "code" varchar(2) NOT NULL,
@@ -97,7 +96,7 @@ CREATE TABLE IF NOT EXISTS "countries" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "fiscal_regimes" (
+CREATE TABLE "fiscal_regimes" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "sat_id" varchar(8) NOT NULL,
@@ -107,7 +106,7 @@ CREATE TABLE IF NOT EXISTS "fiscal_regimes" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "variant_tags" (
+CREATE TABLE "variant_tags" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
   "created_at" timetz DEFAULT (now()),
@@ -116,7 +115,16 @@ CREATE TABLE IF NOT EXISTS "variant_tags" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "departments" (
+CREATE TABLE "brands" (
+  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "Name" varchar(128),
+  "created_at" timetz DEFAULT (now()),
+  "updated_at" timetz DEFAULT (now()),
+  "deleted_at" timetz,
+  "is_deleted" bool DEFAULT false
+);
+
+CREATE TABLE "departments" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "_id" varchar(24),
   "name" varchar(94) NOT NULL,
@@ -126,7 +134,7 @@ CREATE TABLE IF NOT EXISTS "departments" (
   "is_deleted" bool DEFAULT false
 );
 
-CREATE TABLE IF NOT EXISTS "sections" (
+CREATE TABLE "sections" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "_id" varchar(24),
   "name" varchar(94) NOT NULL,
@@ -137,7 +145,7 @@ CREATE TABLE IF NOT EXISTS "sections" (
   "department_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "products" (
+CREATE TABLE "products" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "_id" varchar(24),
   "name" varchar(94) NOT NULL,
@@ -147,10 +155,17 @@ CREATE TABLE IF NOT EXISTS "products" (
   "is_deleted" bool DEFAULT false,
   "section_id" UUID,
   "status_id" UUID,
-  "class_id" UUID
+  "class_id" UUID,
+  "display_unit_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "products_averages" (
+CREATE TABLE "product_fill_directions" (
+  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "directions" varchar NOT NULL,
+  "product_id" UUID
+);
+
+CREATE TABLE "products_averages" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "price" varchar(94) NOT NULL,
   "created_at" timetz DEFAULT (now()),
@@ -161,14 +176,14 @@ CREATE TABLE IF NOT EXISTS "products_averages" (
   "product_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "variant_taxes" (
+CREATE TABLE "variant_taxes" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "is_deleted" bool DEFAULT false,
   "product_id" UUID,
   "tax_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "provider_tax_information" (
+CREATE TABLE "provider_tax_information" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(255) NOT NULL,
   "tax_id" varchar(13) NOT NULL,
@@ -181,7 +196,7 @@ CREATE TABLE IF NOT EXISTS "provider_tax_information" (
   "provider_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "providers" (
+CREATE TABLE "providers" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "_id" varchar(24),
   "name" varchar(128) NOT NULL,
@@ -192,36 +207,26 @@ CREATE TABLE IF NOT EXISTS "providers" (
   "status_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "variants" (
+CREATE TABLE "variants" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "_id" varchar(24),
   "external_id" varchar(24),
-  "name" varchar(128) NOT NULL,
-  "display_name" varchar(128) NOT NULL,
-  "description" varchar(255) NOT NULL,
-  "brand" varchar(128) NOT NULL,
+  "description" varchar(255),
+  "content" decimal(12,6) NOT NULL,
+  "in_stock" bool DEFAULT true,
   "created_at" timetz DEFAULT (now()),
   "updated_at" timetz DEFAULT (now()),
   "deleted_at" timetz,
   "is_deleted" bool DEFAULT false,
+  "content_unit_id" UUID,
   "status_id" UUID,
   "provider_id" UUID,
-  "country_id" UUID
-);
-
-CREATE TABLE IF NOT EXISTS "product_variants" (
+  "country_id" UUID,
   "product_id" UUID,
-  "variant_id" UUID
+  "brand_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "variant_presentations" (
-  "content" decimal(12,6) NOT NULL,
-  "variant_id" UUID,
-  "display_unit_id" UUID,
-  "content_unit_id" UUID
-);
-
-CREATE TABLE IF NOT EXISTS "variant_prices" (
+CREATE TABLE "variant_prices" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "price" decimal(12,6) NOT NULL,
   "created_at" timetz DEFAULT (now()),
@@ -231,7 +236,7 @@ CREATE TABLE IF NOT EXISTS "variant_prices" (
   "variant_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "orders" (
+CREATE TABLE "orders" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "identifier" varchar(8) NOT NULL,
   "commission" decimal(12,9) NOT NULL,
@@ -245,7 +250,7 @@ CREATE TABLE IF NOT EXISTS "orders" (
   "uuid_index" varchar(8) UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS "order_items" (
+CREATE TABLE "order_items" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "quantity" decimal(12,6) NOT NULL,
   "price" decimal(12,6) NOT NULL,
@@ -257,7 +262,7 @@ CREATE TABLE IF NOT EXISTS "order_items" (
   "variant_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "order_status_history" (
+CREATE TABLE "order_status_history" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "created_at" timetz DEFAULT (now()),
   "updated_at" timetz DEFAULT (now()),
@@ -267,7 +272,7 @@ CREATE TABLE IF NOT EXISTS "order_status_history" (
   "status_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "client_tax_information" (
+CREATE TABLE "client_tax_information" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(255) NOT NULL,
   "rfc" varchar(13) NOT NULL,
@@ -280,7 +285,7 @@ CREATE TABLE IF NOT EXISTS "client_tax_information" (
   "fiscal_regime_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "clients" (
+CREATE TABLE "clients" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(128) NOT NULL,
   "created_at" timetz DEFAULT (now()),
@@ -290,7 +295,7 @@ CREATE TABLE IF NOT EXISTS "clients" (
   "status_id" UUID
 );
 
-CREATE TABLE IF NOT EXISTS "client_delivery_addresses" (
+CREATE TABLE "client_delivery_addresses" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "street" varchar(128) NOT NULL,
   "exterior" varchar(64) NOT NULL,
@@ -351,6 +356,8 @@ COMMENT ON COLUMN "variants"."_id" IS 'Queda como legacy, sedeberá elimnar cuan
 
 COMMENT ON COLUMN "variants"."external_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
 
+COMMENT ON COLUMN "variants"."in_stock" IS 'Indica si el proveedor tiene producto en stock';
+
 COMMENT ON COLUMN "orders"."identifier" IS 'Template: YYMMXXXX';
 
 COMMENT ON TABLE "client_tax_information" IS 'Client tax information';
@@ -364,6 +371,10 @@ ALTER TABLE "products" ADD FOREIGN KEY ("section_id") REFERENCES "sections" ("id
 ALTER TABLE "products" ADD FOREIGN KEY ("status_id") REFERENCES "product_status" ("id");
 
 ALTER TABLE "products" ADD FOREIGN KEY ("class_id") REFERENCES "sat_classes" ("id");
+
+ALTER TABLE "products" ADD FOREIGN KEY ("display_unit_id") REFERENCES "measurement_units" ("id");
+
+ALTER TABLE "product_fill_directions" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
 
 ALTER TABLE "products_averages" ADD FOREIGN KEY ("unit_id") REFERENCES "measurement_units" ("id");
 
@@ -379,13 +390,19 @@ ALTER TABLE "provider_tax_information" ADD FOREIGN KEY ("provider_id") REFERENCE
 
 ALTER TABLE "providers" ADD FOREIGN KEY ("status_id") REFERENCES "provider_status" ("id");
 
+ALTER TABLE "variants" ADD FOREIGN KEY ("content_unit_id") REFERENCES "measurement_units" ("id");
+
 ALTER TABLE "variants" ADD FOREIGN KEY ("status_id") REFERENCES "variant_status" ("id");
 
 ALTER TABLE "variants" ADD FOREIGN KEY ("provider_id") REFERENCES "providers" ("id");
 
 ALTER TABLE "variants" ADD FOREIGN KEY ("country_id") REFERENCES "countries" ("id");
 
-CREATE TABLE IF NOT EXISTS "variants_variant_tags" (
+ALTER TABLE "variants" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
+
+ALTER TABLE "variants" ADD FOREIGN KEY ("brand_id") REFERENCES "brands" ("id");
+
+CREATE TABLE "variants_variant_tags" (
   "variants_id" UUID,
   "variant_tags_id" UUID,
   PRIMARY KEY ("variants_id", "variant_tags_id")
@@ -395,16 +412,6 @@ ALTER TABLE "variants_variant_tags" ADD FOREIGN KEY ("variants_id") REFERENCES "
 
 ALTER TABLE "variants_variant_tags" ADD FOREIGN KEY ("variant_tags_id") REFERENCES "variant_tags" ("id");
 
-
-ALTER TABLE "product_variants" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
-
-ALTER TABLE "product_variants" ADD FOREIGN KEY ("variant_id") REFERENCES "variants" ("id");
-
-ALTER TABLE "variant_presentations" ADD FOREIGN KEY ("variant_id") REFERENCES "variants" ("id");
-
-ALTER TABLE "variant_presentations" ADD FOREIGN KEY ("display_unit_id") REFERENCES "measurement_units" ("id");
-
-ALTER TABLE "variant_presentations" ADD FOREIGN KEY ("content_unit_id") REFERENCES "measurement_units" ("id");
 
 ALTER TABLE "variant_prices" ADD FOREIGN KEY ("variant_id") REFERENCES "variants" ("id");
 
