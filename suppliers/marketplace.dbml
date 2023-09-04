@@ -97,7 +97,6 @@ Table client_status {
 // Meassurment units
 Table measurement_units {
     id UUID [pk, default: `uuid_generate_v4()`]
-    _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     name varchar(94) [not null]
     code varchar(64) [not null]
     sat_code varchar(64) [null, Note: 'SAT meassurment unit code']
@@ -108,9 +107,6 @@ Table measurement_units {
     deleted_at timetz [null]
     is_deleted bool [default: false]
     //indexes
-    indexes{
-      (_id)[unique]
-    }
 }
 
 // Countries
@@ -147,7 +143,7 @@ Table variant_tags {
 }
 
 // Brands
-Table Brands {
+Table brands {
     id UUID [pk, default: `uuid_generate_v4()`]
     Name varchar(128) [null]
     created_at timetz [default: `now()`]
@@ -162,22 +158,16 @@ Table Brands {
 // Dapartments
 Table departments {
     id UUID [pk, default: `uuid_generate_v4()`]
-    _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     name varchar(94) [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
     deleted_at timetz [null]
     is_deleted bool [default: false]
-    //indexes
-    indexes{
-      (_id)[unique]
-    }
 }
 
 // sections
 Table sections {
     id UUID [pk, default: `uuid_generate_v4()`]
-    _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     name varchar(94) [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
@@ -185,16 +175,11 @@ Table sections {
     is_deleted bool [default: false]
     // relations
     department_id UUID [ref: > departments.id]
-    //indexes
-    indexes{
-      (_id)[unique]
-    }
 }
 
 // Products
 Table products {
     id UUID [pk, default: `uuid_generate_v4()`]
-    _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     name varchar(94) [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
@@ -205,10 +190,6 @@ Table products {
     status_id UUID [ref: > product_status.id]
     class_id UUID [ref: > sat_classes.id]
     display_unit_id UUID [ref: > measurement_units.id]
-    //indexes
-    indexes{
-      (_id)[unique]
-    }
 }
 
 // Product fill directions
@@ -265,7 +246,6 @@ Table provider_tax_information {
 // Provider information
 Table providers {
     id UUID [pk, default: `uuid_generate_v4()`]
-    _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     name varchar(128) [not null]
     created_at timetz [default: `now()`]
     updated_at timetz [default: `now()`]
@@ -273,16 +253,23 @@ Table providers {
     is_deleted bool [default: false]
     // relations
     status_id UUID [ref: > provider_status.id]
-    //indexes
-    indexes{
-      (_id)[unique]
-    }
+}
+
+//Provider products
+Table provider_products {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    created_at timetz [default: `now()`]
+    updated_at timetz [default: `now()`]
+    deleted_at timetz [null]
+    is_deleted bool [default: false]
+    // relations
+    provider_id UUID [ref: > providers.id]
+    product_id UUID [ref: > products.id]
 }
 
 // Variant information
 Table variants {
     id UUID [pk, default: `uuid_generate_v4()`]
-    _id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     external_id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     description varchar(255) [null]
     content decimal(12,6) [not null]
@@ -298,10 +285,6 @@ Table variants {
     country_id UUID [ref: > countries.id]
     product_id UUID [ref: > products.id]
     brand_id UUID [ref: > brands.id]
-    //indexes
-    indexes{
-      (_id)[unique]
-    }
 }
 Ref: variants.id <> variant_tags.id
 
