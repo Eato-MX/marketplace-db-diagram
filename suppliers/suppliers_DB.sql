@@ -1,3 +1,8 @@
+CREATE TYPE "product_kind" AS ENUM (
+  'service',
+  'product'
+);
+
 CREATE TABLE "taxes" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
   "name" varchar(94) NOT NULL,
@@ -5,16 +10,6 @@ CREATE TABLE "taxes" (
   "base" decimal(12,6) NOT NULL,
   "retention" bool DEFAULT false,
   "quota" bool DEFAULT false,
-  "created_at" timetz DEFAULT (now()),
-  "updated_at" timetz DEFAULT (now()),
-  "deleted_at" timetz,
-  "is_deleted" bool DEFAULT false
-);
-
-CREATE TABLE "sat_classes" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "name" varchar(94) NOT NULL,
-  "clave" varchar(94) NOT NULL,
   "created_at" timetz DEFAULT (now()),
   "updated_at" timetz DEFAULT (now()),
   "deleted_at" timetz,
@@ -73,7 +68,6 @@ CREATE TABLE "client_status" (
 
 CREATE TABLE "measurement_units" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "_id" varchar(24),
   "name" varchar(94) NOT NULL,
   "code" varchar(64) NOT NULL,
   "sat_code" varchar(64),
@@ -126,7 +120,6 @@ CREATE TABLE "brands" (
 
 CREATE TABLE "departments" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "_id" varchar(24),
   "name" varchar(94) NOT NULL,
   "created_at" timetz DEFAULT (now()),
   "updated_at" timetz DEFAULT (now()),
@@ -136,7 +129,6 @@ CREATE TABLE "departments" (
 
 CREATE TABLE "sections" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "_id" varchar(24),
   "name" varchar(94) NOT NULL,
   "created_at" timetz DEFAULT (now()),
   "updated_at" timetz DEFAULT (now()),
@@ -147,15 +139,15 @@ CREATE TABLE "sections" (
 
 CREATE TABLE "products" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "_id" varchar(24),
   "name" varchar(94) NOT NULL,
   "created_at" timetz DEFAULT (now()),
   "updated_at" timetz DEFAULT (now()),
   "deleted_at" timetz,
   "is_deleted" bool DEFAULT false,
+  "kind" product_kind,
+  "sat_code" varchar(24),
   "section_id" UUID,
   "status_id" UUID,
-  "class_id" UUID,
   "display_unit_id" UUID
 );
 
@@ -198,7 +190,6 @@ CREATE TABLE "provider_tax_information" (
 
 CREATE TABLE "providers" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "_id" varchar(24),
   "name" varchar(128) NOT NULL,
   "created_at" timetz DEFAULT (now()),
   "updated_at" timetz DEFAULT (now()),
@@ -207,9 +198,18 @@ CREATE TABLE "providers" (
   "status_id" UUID
 );
 
+CREATE TABLE "provider_products" (
+  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "created_at" timetz DEFAULT (now()),
+  "updated_at" timetz DEFAULT (now()),
+  "deleted_at" timetz,
+  "is_deleted" bool DEFAULT false,
+  "provider_id" UUID,
+  "product_id" UUID
+);
+
 CREATE TABLE "variants" (
   "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "_id" varchar(24),
   "external_id" varchar(24),
   "description" varchar(255),
   "content" decimal(12,6) NOT NULL,
@@ -314,25 +314,9 @@ CREATE TABLE "client_delivery_addresses" (
   "country_id" UUID
 );
 
-CREATE UNIQUE INDEX ON "measurement_units" ("_id");
-
-CREATE UNIQUE INDEX ON "departments" ("_id");
-
-CREATE UNIQUE INDEX ON "sections" ("_id");
-
-CREATE UNIQUE INDEX ON "products" ("_id");
-
-CREATE UNIQUE INDEX ON "providers" ("_id");
-
-CREATE UNIQUE INDEX ON "variants" ("_id");
-
 COMMENT ON TABLE "taxes" IS 'Providers taxes';
 
 COMMENT ON COLUMN "taxes"."base" IS 'Amount to apply the tax, if quota is true, this is the quota amount, if false, this is the percentage to be calculated';
-
-COMMENT ON TABLE "sat_classes" IS 'SAT products and services classification codes';
-
-COMMENT ON COLUMN "measurement_units"."_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
 
 COMMENT ON COLUMN "measurement_units"."sat_code" IS 'SAT meassurment unit code';
 
@@ -342,17 +326,9 @@ COMMENT ON COLUMN "countries"."icon" IS 'Country flag icon';
 
 COMMENT ON COLUMN "fiscal_regimes"."sat_id" IS 'SAT fiscal regime code';
 
-COMMENT ON COLUMN "departments"."_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
-
-COMMENT ON COLUMN "sections"."_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
-
-COMMENT ON COLUMN "products"."_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
+COMMENT ON COLUMN "products"."sat_code" IS 'SAT product code';
 
 COMMENT ON COLUMN "provider_tax_information"."tax_id" IS 'RFC';
-
-COMMENT ON COLUMN "providers"."_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
-
-COMMENT ON COLUMN "variants"."_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
 
 COMMENT ON COLUMN "variants"."external_id" IS 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB';
 
@@ -369,8 +345,6 @@ ALTER TABLE "sections" ADD FOREIGN KEY ("department_id") REFERENCES "departments
 ALTER TABLE "products" ADD FOREIGN KEY ("section_id") REFERENCES "sections" ("id");
 
 ALTER TABLE "products" ADD FOREIGN KEY ("status_id") REFERENCES "product_status" ("id");
-
-ALTER TABLE "products" ADD FOREIGN KEY ("class_id") REFERENCES "sat_classes" ("id");
 
 ALTER TABLE "products" ADD FOREIGN KEY ("display_unit_id") REFERENCES "measurement_units" ("id");
 
@@ -389,6 +363,10 @@ ALTER TABLE "provider_tax_information" ADD FOREIGN KEY ("fiscal_regime_id") REFE
 ALTER TABLE "provider_tax_information" ADD FOREIGN KEY ("provider_id") REFERENCES "providers" ("id");
 
 ALTER TABLE "providers" ADD FOREIGN KEY ("status_id") REFERENCES "provider_status" ("id");
+
+ALTER TABLE "provider_products" ADD FOREIGN KEY ("provider_id") REFERENCES "providers" ("id");
+
+ALTER TABLE "provider_products" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
 
 ALTER TABLE "variants" ADD FOREIGN KEY ("content_unit_id") REFERENCES "measurement_units" ("id");
 
