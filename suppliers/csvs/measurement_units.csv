@@ -1,89 +1,89 @@
-id,_id,name,code,sat_code,magnitude,value,created_at,updated_at,deleted_at,is_deleted
-ac872f3a-90f0-4037-bb03-62f8bdb84bfa,5df8f4def290f74d58745b49,Kilómetro,km,kmt,longitude,1000,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-8e4cfbbe-3845-43be-915e-d09a15e0c189,5df8f4def290f74d58745b4a,Centímetro,cm,cmt,longitude,0.01,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-7a2e70ff-c27e-4c69-abcc-aa8f2b4d3c77,5df8f4def290f74d58745b48,Metro,m,mtr,longitude,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-927dbe5e-a852-4824-9283-0057dceec367,5df8f4def290f74d58745b4c,Pulgada,inch,inh,longitude,0.0254,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-cd19b4b2-47c5-41f3-9d28-b4969537b185,5df8f4def290f74d58745b4d,Pie,ft,fot,longitude,0.3048,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-3be7ba0f-59ed-4d22-807a-25c3df15bb8c,5df8f4def290f74d58745b4e,Gramo,g,grm,mass,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-35cb31da-6d93-47be-8c95-03ae3b6dd0e5,5df8f4def290f74d58745b4b,Milímetro,cm,mmt,longitude,0.001,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-fc8c6765-c38c-4308-bb2b-294a5d107fd9,5df8f4def290f74d58745b50,Kilogramo,kg,kgm,mass,1000,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-20518917-2e4e-476b-9a6a-1d3bee307927,5df8f4def290f74d58745b53,Libra,lb,,mass,453.592,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-4ff27482-7d27-4be8-8185-d8206d0b9060,5df8f4def290f74d58745b51,Tonelada,t,,mass,1000000,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-2b19ff6a-4e3d-49e6-b6d1-7c90ef48a028,5df8f4def290f74d58745b52,Onza,oz,onz,mass,28.3495,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-6cbec2ea-ad25-4019-a7b4-3d9190325fbd,5df8f4def290f74d58745b4f,Miligramo,mg,mgm,mass,0.001,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-18a1d9c1-6e76-4c96-94af-f1c46d873fac,5df8f4def290f74d58745b56,Vaso,glass,xcu,volumen,0.2,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-662ce304-fbd0-4434-98e4-850537260e61,5df8f4def290f74d58745b55,mililitro,ml,mlt,volumen,0.001,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-3a7e4111-7d6f-4efc-94b5-0b2bd3b4c858,5df8f4def290f74d58745b58,Galón,gl,a76,volumen,3.78541,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-88dfe80b-f934-4c5e-a5df-1fbedfe79c52,5df8f4def290f74d58745b57,Cuarto,gt,qt,volumen,0.946353,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-3293891c-1a30-494d-9769-869f9a3823ed,5df8f4def290f74d58745b54,Litro,l,ltr,volumen,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-da144dd4-bf5b-4eb7-b8d9-0be15eecaa1b,5df8f4def290f74d58745b5d,Onza líquida GB,ozi,ozi,volumen,0.028413,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-4d749130-5a6c-40ea-84f7-9ccda749c14a,5df8f4def290f74d58745b5a,Copa,cop,,volumen,0.236588,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-2c0c232b-3815-46a5-8583-0ec566716058,5df8f4def290f74d58745b5b,Bidon,bd,x3h,volumen,20,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-31279b43-a034-4e9f-b143-a5fb06c9321e,5df8f4def290f74d58745b5c,Onza líquida EU,oza,oza,volumen,0.029574,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-0df2ee5c-29b6-4b96-abdc-597301d14783,5df8f4def290f74d58745b59,Taza,cup,g21,volumen,0.236588,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-355935e2-088d-4a1f-83b7-e500c52d13b6,5df8f4def290f74d58745b62,Pieza,pz,h87,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-00742477-38ad-4898-aa81-9f1f14a56f4a,5df8f4def290f74d58745b5e,Cucharita(tsp),teaspoon,g25,volumen,0.005,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-45bbd960-d92f-4789-9390-f5c50709c7f4,5df8f4def290f74d58745b5f,Cucharada(tbs),tablespoon,g24,volumen,0.015,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-7e9fbac3-c383-435d-a43f-004c2619ffc1,5df8f4def290f74d58745b60,Rollo,rl,xro,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-27f25a7b-6aa9-4740-8295-a6833825db47,5df8f4def290f74d58745b61,Caja,box,xbx,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-22d26dad-a444-4b62-b48c-fd4fc90950f1,5df8f4def290f74d58745b67,Cubeta,bkt,xbj,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-4d37ebb7-67fa-4776-aa7c-e3cb8444022d,5df8f4def290f74d58745b64,Paquete,pkg,xpk,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-871c9544-cd2a-430e-b23e-487add0c136e,5df8f4def290f74d58745b6c,Manojo,bunch,xbh,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-103ade77-6cf4-40b8-a8d3-fa1ad2f102c3,5df8f4def290f74d58745b65,Bolsa,bag,xec,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-60dbd55e-1420-4fab-8105-045e19c6f3e0,5df8f4def290f74d58745b66,Bulto,bun,xsa,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-3312bd25-c6f3-4e8d-8993-dca1917b664d,5df8f4def290f74d58745b63,Unidad,XUN,xun,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-760d735a-81b7-448e-9873-c2c7f1854729,5df8f4def290f74d58745b69,Frasco,jar,xci,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-1cd16489-c79d-4029-8f09-488b1a9418ed,5df8f4def290f74d58745b6a,Garrafon,gar,xcp,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-ef95fdba-be84-40a6-ba17-76b45f4a90c4,5df8f4def290f74d58745b68,Domo,dome,xif,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-61f7f5ac-664e-40be-8232-817befbe4e42,5df8f4def290f74d58745b6b,Lata,can,xcx,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-097b2f1d-3f7c-4421-88b8-0037ca2dbc63,5df8f4def290f74d58745b6e,Botella,bot,xbs,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-8e8bb93c-67d0-4681-911b-865399100264,5df8f4def290f74d58745b6f,Bote,bt,xbq,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-5c225913-6aaa-4d1a-836b-6d8b06f2e19c,5df8f4def290f74d58745b70,Docena,dc,dzn,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-142484bf-583d-4cba-8fd7-56daa019749a,5df8f4def290f74d58745b6d,Orden,ord,,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-57240ab6-5538-443e-9fb3-7553c323e794,5eb1d80f8991c83bab4d1903,Conjunto,set,set,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-6fecc9b7-62e1-4b2a-9a30-1271b30fff21,5eb63868d0787acc6d742e75,Unidad de servicio,e48,e48,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-1776be51-684e-4954-8c58-73a576f0eaad,5edee907a3f8a2414c001e27,Elemento,el,ea,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-5aa9bb1d-7eb6-4c8a-b104-d7c546f1bfab,5edf03ddd36d8245a26e5a52,Unidades de empaque,ue,xun,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-6fba1b8c-230b-41e7-9583-bec00107864e,5ee2ec53a4fcd81ae4399117,Número de paquetes,No de paq,nmp,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-7201a20a-0671-47d2-b2c1-a505fa738f87,5ef3a50bbbed805d774d7f48,Kilogramo neto,kg neto,58,mass,1000,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-2fd9c5ab-3976-4c38-aafa-0ed68758e95a,5ef6d071bd50af51a12101f9,Cambro,Caja Base,bb,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-3df10618-a207-4281-99a6-7a339852bf9c,5f0f7e9a3caee934a4a19696,Actividad,ACT,act,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-498efc31-ba46-48eb-98a5-f5c2e87abd25,5f1763fef38f567f86fd652f,Kilogramo peso seco,kg ps,mnd,mass,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-4d6ab64b-5c9e-4846-9347-23642ee9696c,5f8638bb05fc1b610cf29ffc,Caja de plástico,caja de plástico,x4h,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-3182c1d9-1ebb-4578-9365-f137a66ceaa5,5f8639a905fc1b610cf29ffd,Hectólitro,Hectpolitro,hlt,volumen,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-2c1df697-9ced-4d15-b903-dc2d1a872777,5f908985278f2f33c865fb0c,Caja de cartón,Caja cartón,x4g,volumen,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-e2fe0dd3-07b9-45b4-a115-be9e2b83cd12,5f98e9ec7f2a437a5b48933c,Metro cúbico,metro3,mtq,volumen,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-ba9d7b03-cd1f-4636-8a2d-edbca6f93e8b,5fac958dde39e4658f99e8f9,Unidad,Uno,c62,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-49448d44-3ed4-4f85-ad95-ebc9e1180afb,5fac97aede39e4658f99e935,Botella sin protección cilíndrica,Bot Cilíndrica,xbo,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-e33bc7f0-eb9e-499f-9559-0560768b9632,5fb6ed9334041d72b649a156,Barril,EURCO,xba,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-d7343ec4-c6f9-4a7a-936e-2ba0a358a5a9,5fb7475e34041d72b649a1a3,Mil pedazos,Mil pedazos,t3,custom,1000,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-94d3944e-77d9-409f-9708-a8bd3b5d699e,5fbc144e53959b16681dbc43,Kilo bruto,Kilo bruto,e4,mass,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-98f851a8-29c4-4f46-a0f0-b47bb73262e0,5fbc2c1653959b16681dbc60,Recipiente de plástico en caja de cartón,reci plástico,xyk,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-71123a14-4253-47d2-bdb3-33635a766c46,5fdceec6629a2a5042b5bde3,Paquete a granel,Paq granel,ab,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-bfcafedc-4748-4015-9b6b-7549ea73e3fc,6064e890996059001e105f07,Docena de piezas,DDP,dpc,custom,12,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-e60fce82-ba57-4cb3-a3b9-a318eab2184a,6067a12d996059001e106075,Litro X Litro,LxL,k62,volumen,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-e795a99a-e620-4b27-827c-2c7e9c810e54,607600a48d70d5001e7bac9e,Kit de piezas,Kit,xki,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-ea4dee8d-0020-42a3-9d97-6b7c37060a84,6081ef1ed36625001e73bcb7,Tarífa,Tarífa,a9,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-acf42aa7-14c4-4405-b7af-9ed8797ba663,608746e7fbf14a001e9faa46,Mutuamente definido,Mutuamente definido,zz,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-7ea4e3a6-7189-4979-bd4d-8976862b467b,6093076bcf13b6001f4a2b44,No disponible,ND,xna,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-8b380d4b-cb00-4bee-9de1-535e4698389d,60a5242c8b2293001fc5fef3,Kilogramo teórico,Kg. Teo.,53,mass,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-c236a249-bbfd-484a-bafb-9f6e33d0d835,60a6d5f98b2293001fc60070,Carga,Carga,nl,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-8c2145c4-61d2-4f72-a580-47dc93c8c955,60b94ee491697c001fe00eef,Envío,Envío,sx,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-6430a77d-e484-49d4-a2c1-d81ae78f97a3,6116a12a240aa5001e9e113f,Kilogramo por kilogramos de producto,kg x kg,3h,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-b4553bdb-12b9-48dd-b530-7343bb4bae96,6116a151240aa5001e9e1145,Mil,Mil,mil,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-bd81f466-779e-45ad-9da8-1aeefc9557c4,611ec5d81cdb11001efcd36e,Veinte Pack,20 Pack,4e,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-3b5fe6d7-691f-4d55-9e15-5ee455d16b48,6125801480df61001dcb05a7,Empaques a granel,Emp,xlt,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-18343a37-c66d-4a08-aa23-b531ae2dfde8,616f22ea694e20001f4a72ba,Medio Litro,MedL,h2,volumen,0.5,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-59023286-942a-4725-aef9-655486dde5f0,61d38d2aa2c999001f57849f,Kilogramo por tonelada métrica seca del aire,Kilogramo por tonelada métrica seca del aire,32,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-680ec70c-e906-45fa-aed7-efaa58904861,61e07a5ee75fa7001f6b3dc7,Bolsa de plastico,Bolsa de plastico,x44,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-aab94325-60a6-4320-a202-5f68aeb24690,620302e493010400206303e4,Unidad de conteo que define el número de pares,PAR,pr,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-7b7c948e-62aa-4de5-a045-2605c56e7a1a,62c74794463875001f5a2c06,Kit,Kit,kt,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-f49991d9-5618-4de6-b3b0-be8824837460,632b6f7433d2bf0021569a90,Cabeza,Cabeza,hea,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-53b85d2f-94da-4781-8653-72efa4215ca2,635ab6fc8b488a001e26c6dc,Paquete de 8 piezas,P8,p8,volumen,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-434cc790-aca7-4a70-bfd2-2e4baad99691,636bf5cfb460ae001e58529e,Gramo por 100 gramos,GC,gc,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-38d9d7bd-886d-4258-b55c-8c40dc138068,636c0baeb460ae001e58580b,Unidad,XUN,xun,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-5bba7ed3-6022-474f-96cf-6b0b9ee493e0,63ff7981c2e730001e10270b,Kilogramo por segundo,KGS,kgs,mass,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-fd42fde9-4207-41a9-b4a8-1241b27dbe62,63ff79a9c2e730001e102793,Pastel,KA,ka,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-15cc0c14-5df7-4698-92cd-6b648c67e2d0,63ff7d15c2e730001e103130,Viaje,Viaje,e54,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-0c8288f4-6f74-4c7f-9cee-ddb8cbbfb230,641a0cb71bd513001ededc3c,Cartón, XCT,xct,custom,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
-456ebb39-50c7-4eb4-bde2-ff3fd09e42a8,6451b2b7be27fb001e5c44ac,Mil litros,Mil litros,d40,volumen,1,18:01:29.472164+00,18:01:29.472164+00,NULL,False
+name,code,sat_code,magnitude,value
+Kilómetro,km,kmt,longitude,1000
+Centímetro,cm,cmt,longitude,0.01
+Metro,m,mtr,longitude,1
+Pulgada,inch,inh,longitude,0.0254
+Pie,ft,fot,longitude,0.3048
+Gramo,g,grm,mass,1
+Milímetro,cm,mmt,longitude,0.001
+Kilogramo,kg,kgm,mass,1000
+Libra,lb,,mass,453.592
+Tonelada,t,,mass,1000000
+Onza,oz,onz,mass,28.3495
+Miligramo,mg,mgm,mass,0.001
+Vaso,glass,xcu,volumen,0.2
+mililitro,ml,mlt,volumen,0.001
+Galón,gl,a76,volumen,3.78541
+Cuarto,gt,qt,volumen,0.946353
+Litro,l,ltr,volumen,1
+Onza líquida GB,ozi,ozi,volumen,0.028413
+Copa,cop,,volumen,0.236588
+Bidon,bd,x3h,volumen,20
+Onza líquida EU,oza,oza,volumen,0.029574
+Taza,cup,g21,volumen,0.236588
+Pieza,pz,h87,custom,1
+Cucharita(tsp),teaspoon,g25,volumen,0.005
+Cucharada(tbs),tablespoon,g24,volumen,0.015
+Rollo,rl,xro,custom,1
+Caja,box,xbx,custom,1
+Cubeta,bkt,xbj,custom,1
+Paquete,pkg,xpk,custom,1
+Manojo,bunch,xbh,custom,1
+Bolsa,bag,xec,custom,1
+Bulto,bun,xsa,custom,1
+Unidad,XUN,xun,custom,1
+Frasco,jar,xci,custom,1
+Garrafon,gar,xcp,custom,1
+Domo,dome,xif,custom,1
+Lata,can,xcx,custom,1
+Botella,bot,xbs,custom,1
+Bote,bt,xbq,custom,1
+Docena,dc,dzn,custom,1
+Orden,ord,,custom,1
+Conjunto,set,set,custom,1
+Unidad de servicio,e48,e48,custom,1
+Elemento,el,ea,custom,1
+Unidades de empaque,ue,xun,custom,1
+Número de paquetes,No de paq,nmp,custom,1
+Kilogramo neto,kg neto,58,mass,1000
+Cambro,Caja Base,bb,custom,1
+Actividad,ACT,act,custom,1
+Kilogramo peso seco,kg ps,mnd,mass,1
+Caja de plástico,caja de plástico,x4h,custom,1
+Hectólitro,Hectpolitro,hlt,volumen,1
+Caja de cartón,Caja cartón,x4g,volumen,1
+Metro cúbico,metro3,mtq,volumen,1
+Unidad,Uno,c62,custom,1
+Botella sin protección cilíndrica,Bot Cilíndrica,xbo,custom,1
+Barril,EURCO,xba,custom,1
+Mil pedazos,Mil pedazos,t3,custom,1000
+Kilo bruto,Kilo bruto,e4,mass,1
+Recipiente de plástico en caja de cartón,reci plástico,xyk,custom,1
+Paquete a granel,Paq granel,ab,custom,1
+Docena de piezas,DDP,dpc,custom,12
+Litro X Litro,LxL,k62,volumen,1
+Kit de piezas,Kit,xki,custom,1
+Tarífa,Tarífa,a9,custom,1
+Mutuamente definido,Mutuamente definido,zz,custom,1
+No disponible,ND,xna,custom,1
+Kilogramo teórico,Kg. Teo.,53,mass,1
+Carga,Carga,nl,custom,1
+Envío,Envío,sx,custom,1
+Kilogramo por kilogramos de producto,kg x kg,3h,custom,1
+Mil,Mil,mil,custom,1
+Veinte Pack,20 Pack,4e,custom,1
+Empaques a granel,Emp,xlt,custom,1
+Medio Litro,MedL,h2,volumen,0.5
+Kilogramo por tonelada métrica seca del aire,Kilogramo por tonelada métrica seca del aire,32,custom,1
+Bolsa de plastico,Bolsa de plastico,x44,custom,1
+Unidad de conteo que define el número de pares,PAR,pr,custom,1
+Kit,Kit,kt,custom,1
+Cabeza,Cabeza,hea,custom,1
+Paquete de 8 piezas,P8,p8,volumen,1
+Gramo por 100 gramos,GC,gc,custom,1
+Unidad,XUN,xun,custom,1
+Kilogramo por segundo,KGS,kgs,mass,1
+Pastel,KA,ka,custom,1
+Viaje,Viaje,e54,custom,1
+Cartón," XCT",xct,custom,1
+Mil litros,Mil litros,d40,volumen,1

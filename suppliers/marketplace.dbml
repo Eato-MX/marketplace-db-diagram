@@ -182,9 +182,9 @@ Table products {
     kind product_kind
     sat_code varchar(24) [null, Note: 'SAT product code']
     // relations
-    section_id UUID [ref: > sections.id]
-    status_id UUID [ref: > product_status.id]
-    display_unit_id UUID [ref: > measurement_units.id]
+    section_id UUID [null,ref: > sections.id]
+    status_id UUID [null,ref: > product_status.id]
+    display_unit_id UUID [null,ref: > measurement_units.id]
 }
 
 // Product fill directions
