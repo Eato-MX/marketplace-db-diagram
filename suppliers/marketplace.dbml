@@ -395,4 +395,5 @@ Table client_delivery_addresses {
     // relations
     client UUID [ref: > clients.id]
     country UUID [ref: > countries.id]
+    
 }
