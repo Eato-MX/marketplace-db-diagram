@@ -184,7 +184,7 @@ Table products {
     // relations
     section UUID [null,ref: > sections.id]
     status UUID [null,ref: > product_status.id]
-    contentUnit UUID [null,ref: > measurement_units.id]
+    contentUnit UUID [null,ref: > content_units.id]
 }
 
 // Product fill directions
@@ -203,7 +203,7 @@ Table products_averages {
     updatedAt timetz [default: `now()`]
     deletedAt timetz [null]
     isDeleted bool [default: false]
-    // relations unit_id UUID [ref: > measurement_units.id] // Media de la unidad utilizada en las variantes para este producto
+    // relations unit_id UUID [ref: > content_units.id] // Media de la unidad utilizada en las variantes para este producto
     product UUID [ref: > products.id]
 }
 
@@ -273,7 +273,7 @@ Table variants {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    displayUnit UUID [ref: > measurement_units.id]
+    displayUnit UUID [ref: > content_units.id]
     status UUID [ref: > variant_status.id]
     provider UUID [ref: > providers.id]
     country UUID [ref: > countries.id]
