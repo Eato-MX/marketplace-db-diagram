@@ -1,24 +1,24 @@
-id,name,sat_id,created_at,updated_at,deleted_at,is_deleted
-d0b11583-6170-4f3f-bcec-61b155c010cb,General de Ley Personas Morales,601,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-8e1deb3e-7ef9-4fc9-ae09-389d0076b4bc,Personas Morales con Fines no Lucrativos,603,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-a3703840-bc6a-4de5-99a6-8a1a28130f03,Sueldos y Salarios e Ingresos Asimilados a Salarios,605,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-1b7a9bce-520d-4a5e-a113-2e8767d0ffc7,Arrendamiento,606,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-20dc5cb3-e064-4492-8edc-22752eda921e,Régimen de Enajenación o Adquisición de Bienes,607,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-efc72396-96e1-4f26-91cf-0cd6f4c9648d,Demás ingresos,608,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-6f5b5182-b30e-4d7d-b041-8c98c8254b1f,Consolidación,609,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-bf576b9a-316c-4672-afb6-ec78235173f0,Residentes en el Extranjero sin Establecimiento Permanente en México,610,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-00d3e4f5-db6f-48bf-add3-b3fdc3ded69e,Ingresos por Dividendos (socios y accionistas),611,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-8e1f6518-decd-4bcb-b7d9-bd17451a3e78,Personas Físicas con Actividades Empresariales y Profesionales,612,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-f3800506-ee50-4944-b13b-05d44c8df127,Ingresos por intereses,614,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-4c5a1d2e-6278-4d7f-a888-fa2c962b2f41,Régimen de los ingresos por obtención de premios,615,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-41ede97f-01cb-45f8-8e44-6a7274a08058,Sin obligaciones fiscales,616,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-ca7b1765-64d2-4c89-abb9-08257a37b906,Sociedades Cooperativas de Producción que optan por diferir sus ingresos,620,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-19a8b036-3d24-4f39-8351-a0329c3f5d1b,Incorporación Fiscal,621,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-8d28bd9e-65e5-4b18-aebe-1bc05c68a5ea,Actividades Agrícolas Ganaderas Silvícolas y Pesqueras,622,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-5085e950-c62c-443a-9f1c-d0f94c66ce80,Opcional para Grupos de Sociedades,623,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-cb744440-5991-4015-a40f-910c70f38db0,Coordinados,624,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-22c44f70-4abf-4e75-9075-33e376f445be,Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas,625,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-4e47cf7c-3a2f-4f24-b99f-28f69ca82b6f,Régimen Simplificado de Confianza,626,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-31429670-70fd-4ab3-9fef-fc367d528b1f,Hidrocarburos,628,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-0d35a15b-d6fe-4e46-8cdc-bd2542c8dcad,De los Regímenes Fiscales Preferentes y de las Empresas Multinacionales,629,03:31:15.49386+00,03:31:15.49386+00,NULL,False
-dcf421b6-d0b5-4437-a806-361b41930cab,Enajenación de acciones en bolsa de valores,630,03:31:15.49386+00,03:31:15.49386+00,NULL,False
+name,sat_id
+General de Ley Personas Morales,601
+Personas Morales con Fines no Lucrativos,603
+Sueldos y Salarios e Ingresos Asimilados a Salarios,605
+Arrendamiento,606
+Régimen de Enajenación o Adquisición de Bienes,607
+Demás ingresos,608
+Consolidación,609
+Residentes en el Extranjero sin Establecimiento Permanente en México,610
+Ingresos por Dividendos (socios y accionistas),611
+Personas Físicas con Actividades Empresariales y Profesionales,612
+Ingresos por intereses,614
+Régimen de los ingresos por obtención de premios,615
+Sin obligaciones fiscales,616
+Sociedades Cooperativas de Producción que optan por diferir sus ingresos,620
+Incorporación Fiscal,621
+Actividades Agrícolas Ganaderas Silvícolas y Pesqueras,622
+Opcional para Grupos de Sociedades,623
+Coordinados,624
+Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas,625
+Régimen Simplificado de Confianza,626
+Hidrocarburos,628
+De los Regímenes Fiscales Preferentes y de las Empresas Multinacionales,629
+Enajenación de acciones en bolsa de valores,630

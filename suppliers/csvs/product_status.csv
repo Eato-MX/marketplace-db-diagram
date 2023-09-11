@@ -1,4 +1,4 @@
-id,name,description,created_at,updated_at,deleted_at,is_deleted
-646ae88d-f4a2-44fd-a2e6-694df08a589d,published,Publicado,03:18:14.214569+00,03:18:14.214569+00,NULL,False
-efcf975f-e2df-4aa4-a39b-e75054350865,approved,Aprobado,03:18:14.214569+00,03:18:14.214569+00,NULL,False
-56824f7a-1391-4c64-9aa8-323958bfa6a7,in-review,En revisión,03:18:14.214569+00,03:18:14.214569+00,NULL,False
+name,description
+published,Publicado
+approved,Aprobado
+in-review,En revisión

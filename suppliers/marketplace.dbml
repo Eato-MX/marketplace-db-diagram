@@ -9,14 +9,14 @@ Project marketplace {
 Table taxes {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
-    sat_code varchar(8) [not null]
+    satCode varchar(8) [not null]
     base decimal(12,6) [not null, Note: 'Amount to apply the tax, if quota is true, this is the quota amount, if false, this is the percentage to be calculated']
     retention bool [default:false]
     quota bool [default:false]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null] 
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null] 
+    isDeleted bool [default: false]
 
     Note: 'Providers taxes'
 }
@@ -30,10 +30,10 @@ Table product_status {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
     description varchar(64) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 
@@ -42,10 +42,10 @@ Table provider_status {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
     description varchar(64) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 
@@ -54,10 +54,10 @@ Table variant_status {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
     description varchar(64) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 // Order status
@@ -65,10 +65,10 @@ Table order_status {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
     description varchar(64) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 // Client tatus
@@ -76,24 +76,24 @@ Table client_status {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
     description varchar(64) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
-// Meassurment units
-Table measurement_units {
+// Content units
+Table content_units {
     id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(94) [not null]
-    code varchar(64) [not null]
-    sat_code varchar(64) [null, Note: 'SAT meassurment unit code']
+    name varchar(100) [not null]
+    code varchar(100) [not null]
+    fiscalCode varchar(64) [null, Note: 'SAT meassurment unit code']
     magnitude varchar(24) [not null]
     value decimal(15,7) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     //indexes
 }
 
@@ -103,41 +103,41 @@ Table countries {
     name varchar(100) [not null]
     code varchar(2) [not null, Note: 'ISO 3166-1 alpha-2 code']
     icon varchar(64) [null, Note: 'Country flag icon']
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 // Fiscal regimes
 Table fiscal_regimes {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
-    sat_id varchar(8) [not null, Note: 'SAT fiscal regime code']
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    code varchar(8) [not null, Note: 'SAT fiscal regime code']
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 // Variant tags
 Table variant_tags {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 // Brands
 Table brands {
     id UUID [pk, default: `uuid_generate_v4()`]
-    Name varchar(128) [null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    name varchar(128) [null]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 /*****************************************************************************************
@@ -147,20 +147,20 @@ Table brands {
 Table departments {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
 }
 
 // sections
 Table sections {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
     department_id UUID [ref: > departments.id]
 }
@@ -175,16 +175,16 @@ Enum product_kind {
 Table products {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(94) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     kind product_kind
-    sat_code varchar(24) [null, Note: 'SAT product code']
+    satCode varchar(24) [null, Note: 'SAT product code']
     // relations
-    section_id UUID [ref: > sections.id]
-    status_id UUID [ref: > product_status.id]
-    display_unit_id UUID [ref: > measurement_units.id]
+    section UUID [null,ref: > sections.id]
+    status UUID [null,ref: > product_status.id]
+    contentUnit UUID [null,ref: > content_units.id]
 }
 
 // Product fill directions
@@ -192,29 +192,28 @@ Table product_fill_directions {
     id UUID [pk, default: `uuid_generate_v4()`]
     directions varchar [not null]
     // relations
-    product_id UUID [ref: > products.id]
+    product UUID [ref: > products.id]
 }
 
 // Product averages
 Table products_averages {
     id UUID [pk, default: `uuid_generate_v4()`]
     price varchar(94) [not null] // Precio promedio de las variantes que pertenecen este producto
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
-    // relations
-    unit_id UUID [ref: > measurement_units.id] // Media de la unidad utilizada en las variantes para este producto
-    product_id UUID [ref: > products.id]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
+    // relations unit_id UUID [ref: > content_units.id] // Media de la unidad utilizada en las variantes para este producto
+    product UUID [ref: > products.id]
 }
 
 // Product taxes
 Table variant_taxes {
     id UUID [pk, default: `uuid_generate_v4()`]
-    is_deleted bool [default: false]
+    isDeleted bool [default: false]
     // relations
-    product_id UUID [ref: > products.id]
-    tax_id UUID [ref: > taxes.id]
+    product UUID [ref: > products.id]
+    tax    UUID [ref: > taxes.id]
 }
 
 
@@ -226,74 +225,62 @@ Table variant_taxes {
 Table provider_tax_information {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(255) [not null]
-    tax_id varchar(13) [not null, Note: 'RFC']
-    private_key_pass varchar(255) [not null] // Consultar las opcions de seguridad
+    TaxId varchar(13) [not null, Note: 'RFC']
+    privateKeyPass varchar(255) [not null] // Consultar las opcions de seguridad
     
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    fiscal_regime_id UUID [ref: > fiscal_regimes.id]
-    provider_id UUID [ref: > providers.id]
+    fiscalRegime UUID [ref: > fiscal_regimes.id]
+    provider UUID [ref: > providers.id]
 }
 
 // Provider information
 Table providers {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(128) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    status_id UUID [ref: > provider_status.id]
+    status UUID [ref: > provider_status.id]
 }
 
 //Provider products
 Table provider_products {
     id UUID [pk, default: `uuid_generate_v4()`]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    provider_id UUID [ref: > providers.id]
-    product_id UUID [ref: > products.id]
+    provider UUID [ref: > providers.id]
+    product UUID [ref: > products.id]
 }
 
 // Variant information
 Table variants {
     id UUID [pk, default: `uuid_generate_v4()`]
-    external_id varchar(24) [null, Note: 'Queda como legacy, sedeberá elimnar cuando ya no se use mongoDB']
     description varchar(255) [null]
     content decimal(12,6) [not null]
-    in_stock bool [default: true, Note: 'Indica si el proveedor tiene producto en stock']
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    inStock bool [default: true, Note: 'Indica si el proveedor tiene producto en stock']
+    price decimal(12,6) [not null]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    content_unit_id UUID [ref: > measurement_units.id]
-    status_id UUID [ref: > variant_status.id]
-    provider_id UUID [ref: > providers.id]
-    country_id UUID [ref: > countries.id]
-    product_id UUID [ref: > products.id]
-    brand_id UUID [ref: > brands.id]
+    displayUnit UUID [ref: > content_units.id]
+    status UUID [ref: > variant_status.id]
+    provider UUID [ref: > providers.id]
+    country UUID [ref: > countries.id]
+    product UUID [ref: > products.id]
+    brand UUID [ref: > brands.id]
 }
 Ref: variants.id <> variant_tags.id
-
-// Variant prices (History)
-Table variant_prices {
-    id UUID [pk, default: `uuid_generate_v4()`]
-    price decimal(12,6) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
-    // relations
-    variant_id UUID [ref: > variants.id]
-}
 
 /*****************************************************************************************
 *                                       Orders data                                      *
@@ -305,14 +292,14 @@ Table orders {
     identifier varchar(8) [not null,Note: 'Template: YYMMXXXX']
     commission decimal(12,9) [not null]
 
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    client_id UUID [ref: > clients.id]
-    provider_id UUID [ref: > providers.id]
-    delivery_adress_id UUID [ref: > client_delivery_addresses.id]
+    client UUID [ref: > clients.id]
+    provider UUID [ref: > providers.id]
+    deliveryAdress UUID [ref: > client_delivery_addresses.id]
     // indexes
     uuid_index varchar(8) [unique]
 }
@@ -323,25 +310,25 @@ Table order_items {
     quantity decimal(12,6) [not null]
     price decimal(12,6) [not null]
 
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    order_id UUID [ref: > orders.id]
-    variant_id UUID [ref: > variants.id]
+    order UUID [ref: > orders.id]
+    variant UUID [ref: > variants.id]
 }
 
 // Order status history
 Table order_status_history {
     id UUID [pk, default: `uuid_generate_v4()`]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    order_id UUID [ref: > orders.id]
-    status_id UUID [ref: > order_status.id]
+    order UUID [ref: > orders.id]
+    status UUID [ref: > order_status.id]
     // agregar a quién modificó???
 }
 
@@ -356,13 +343,13 @@ Table client_tax_information {
     rfc varchar(13) [not null, Note: 'RFC']
     adress varchar(512) [not null]
     
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    client_id UUID [ref: > providers.id]
-    fiscal_regime_id UUID [ref: > fiscal_regimes.id]
+    client UUID [ref: > providers.id]
+    fiscalRegime UUID [ref: > fiscal_regimes.id]
     Note: 'Client tax information'
 }
 
@@ -370,12 +357,12 @@ Table client_tax_information {
 Table clients {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(128) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    status_id UUID [ref: > client_status.id]
+    status UUID [ref: > client_status.id]
 }
 
 // Clients addresses
@@ -390,11 +377,12 @@ Table client_delivery_addresses {
     zip varchar(32) [not null]
     comments varchar(512) [not null]
     schedule varchar(64) [not null]
-    created_at timetz [default: `now()`]
-    updated_at timetz [default: `now()`]
-    deleted_at timetz [null]
-    is_deleted bool [default: false]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
     // relations
-    client_id UUID [ref: > clients.id]
-    country_id UUID [ref: > countries.id]
+    client UUID [ref: > clients.id]
+    country UUID [ref: > countries.id]
+
 }
