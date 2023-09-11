@@ -82,12 +82,12 @@ Table client_status {
     isDeleted bool [default: false]
 }
 
-// Meassurment units
-Table measurement_units {
+// Content units
+Table content_units {
     id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(94) [not null]
-    code varchar(64) [not null]
-    satCode varchar(64) [null, Note: 'SAT meassurment unit code']
+    name varchar(100) [not null]
+    code varchar(100) [not null]
+    fiscalCode varchar(64) [null, Note: 'SAT meassurment unit code']
     magnitude varchar(24) [not null]
     value decimal(15,7) [not null]
     createdAt timetz [default: `now()`]
@@ -133,7 +133,7 @@ Table variant_tags {
 // Brands
 Table brands {
     id UUID [pk, default: `uuid_generate_v4()`]
-    Name varchar(128) [null]
+    name varchar(128) [null]
     createdAt timetz [default: `now()`]
     updatedAt timetz [default: `now()`]
     deletedAt timetz [null]
@@ -212,8 +212,8 @@ Table variant_taxes {
     id UUID [pk, default: `uuid_generate_v4()`]
     isDeleted bool [default: false]
     // relations
-    productId UUID [ref: > products.id]
-    taxId    UUID [ref: > taxes.id]
+    product UUID [ref: > products.id]
+    tax    UUID [ref: > taxes.id]
 }
 
 
@@ -267,12 +267,13 @@ Table variants {
     description varchar(255) [null]
     content decimal(12,6) [not null]
     inStock bool [default: true, Note: 'Indica si el proveedor tiene producto en stock']
+    price decimal(12,6) [not null]
     createdAt timetz [default: `now()`]
     updatedAt timetz [default: `now()`]
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    contentUnit UUID [ref: > measurement_units.id]
+    displayUnit UUID [ref: > measurement_units.id]
     status UUID [ref: > variant_status.id]
     provider UUID [ref: > providers.id]
     country UUID [ref: > countries.id]
@@ -280,18 +281,6 @@ Table variants {
     brand UUID [ref: > brands.id]
 }
 Ref: variants.id <> variant_tags.id
-
-// Variant prices (History)
-Table variant_prices {
-    id UUID [pk, default: `uuid_generate_v4()`]
-    price decimal(12,6) [not null]
-    createdAt timetz [default: `now()`]
-    updatedAt timetz [default: `now()`]
-    deletedAt timetz [null]
-    isDeleted bool [default: false]
-    // relations
-    variant UUID [ref: > variants.id]
-}
 
 /*****************************************************************************************
 *                                       Orders data                                      *
@@ -395,5 +384,5 @@ Table client_delivery_addresses {
     // relations
     client UUID [ref: > clients.id]
     country UUID [ref: > countries.id]
-    
+
 }
