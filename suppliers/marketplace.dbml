@@ -94,7 +94,6 @@ Table content_units {
     updatedAt timetz [default: `now()`]
     deletedAt timetz [null]
     isDeleted bool [default: false]
-    //indexes
 }
 
 // Countries
@@ -162,7 +161,7 @@ Table sections {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    department_id UUID [ref: > departments.id]
+    departmentId UUID [ref: > departments.id]
 }
 
 // Enum de los tipos de productos
@@ -183,8 +182,8 @@ Table products {
     satCode varchar(24) [null, Note: 'SAT product code']
     // relations
     section UUID [null,ref: > sections.id]
-    status UUID [null,ref: > product_status.id]
-    contentUnit UUID [null,ref: > content_units.id]
+    statusId UUID [null,ref: > product_status.id]
+    contentUnitId UUID [null,ref: > content_units.id]
 }
 
 // Product fill directions
@@ -192,7 +191,7 @@ Table product_fill_directions {
     id UUID [pk, default: `uuid_generate_v4()`]
     directions varchar [not null]
     // relations
-    product UUID [ref: > products.id]
+    productId UUID [ref: > products.id]
 }
 
 // Product averages
@@ -204,7 +203,7 @@ Table products_averages {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations unit_id UUID [ref: > content_units.id] // Media de la unidad utilizada en las variantes para este producto
-    product UUID [ref: > products.id]
+    productId UUID [ref: > products.id]
 }
 
 // Product taxes
@@ -212,8 +211,8 @@ Table variant_taxes {
     id UUID [pk, default: `uuid_generate_v4()`]
     isDeleted bool [default: false]
     // relations
-    product UUID [ref: > products.id]
-    tax    UUID [ref: > taxes.id]
+    productId UUID [ref: > products.id]
+    taxId UUID [ref: > taxes.id]
 }
 
 
@@ -233,8 +232,8 @@ Table provider_tax_information {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    fiscalRegime UUID [ref: > fiscal_regimes.id]
-    provider UUID [ref: > providers.id]
+    fiscalRegimeId UUID [ref: > fiscal_regimes.id]
+    providerId UUID [ref: > providers.id]
 }
 
 // Provider information
@@ -246,7 +245,7 @@ Table providers {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    status UUID [ref: > provider_status.id]
+    statusId UUID [ref: > provider_status.id]
 }
 
 //Provider products
@@ -257,8 +256,8 @@ Table provider_products {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    provider UUID [ref: > providers.id]
-    product UUID [ref: > products.id]
+    providerId UUID [ref: > providers.id]
+    productId UUID [ref: > products.id]
 }
 
 // Variant information
@@ -273,12 +272,12 @@ Table variants {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    displayUnit UUID [ref: > content_units.id]
-    status UUID [ref: > variant_status.id]
-    provider UUID [ref: > providers.id]
-    country UUID [ref: > countries.id]
-    product UUID [ref: > products.id]
-    brand UUID [ref: > brands.id]
+    displayUnitId UUID [ref: > content_units.id]
+    statusId UUID [ref: > variant_status.id]
+    providerId UUID [ref: > providers.id]
+    countryId UUID [ref: > countries.id]
+    productId UUID [ref: > products.id]
+    brandId UUID [ref: > brands.id]
 }
 Ref: variants.id <> variant_tags.id
 
@@ -298,8 +297,8 @@ Table orders {
     isDeleted bool [default: false]
     // relations
     client UUID [ref: > clients.id]
-    provider UUID [ref: > providers.id]
-    deliveryAdress UUID [ref: > client_delivery_addresses.id]
+    providerId UUID [ref: > providers.id]
+    deliveryAdressId UUID [ref: > client_delivery_addresses.id]
     // indexes
     uuid_index varchar(8) [unique]
 }
@@ -315,8 +314,8 @@ Table order_items {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    order UUID [ref: > orders.id]
-    variant UUID [ref: > variants.id]
+    orderId UUID [ref: > orders.id]
+    variantId UUID [ref: > variants.id]
 }
 
 // Order status history
@@ -327,8 +326,8 @@ Table order_status_history {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    order UUID [ref: > orders.id]
-    status UUID [ref: > order_status.id]
+    orderId UUID [ref: > orders.id]
+    statusId UUID [ref: > order_status.id]
     // agregar a quién modificó???
 }
 
@@ -348,8 +347,8 @@ Table client_tax_information {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    client UUID [ref: > providers.id]
-    fiscalRegime UUID [ref: > fiscal_regimes.id]
+    clientId UUID [ref: > providers.id]
+    fiscalRegimeId UUID [ref: > fiscal_regimes.id]
     Note: 'Client tax information'
 }
 
@@ -362,7 +361,7 @@ Table clients {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    status UUID [ref: > client_status.id]
+    statusId UUID [ref: > client_status.id]
 }
 
 // Clients addresses
