@@ -36,19 +36,6 @@ Table product_status {
     isDeleted bool [default: false]
 }
 
-
-// Provider status
-Table provider_status {
-    id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(94) [not null]
-    description varchar(64) [not null]
-    createdAt timetz [default: `now()`]
-    updatedAt timetz [default: `now()`]
-    deletedAt timetz [null]
-    isDeleted bool [default: false]
-}
-
-
 // Variant status
 Table variant_status {
     id UUID [pk, default: `uuid_generate_v4()`]
@@ -236,16 +223,21 @@ Table provider_tax_information {
     providerId UUID [ref: > providers.id]
 }
 
+// Enum de los Status de los proveedores
+Enum provider_status {
+    active
+    banned
+}
 // Provider information
 Table providers {
     id UUID [pk, default: `uuid_generate_v4()`]
     name varchar(128) [not null]
+    status provider_status
     createdAt timetz [default: `now()`]
     updatedAt timetz [default: `now()`]
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
-    statusId UUID [ref: > provider_status.id]
 }
 
 //Provider products

@@ -1,101 +1,108 @@
-name
-"Miel y Jarabes "
-Mobiliario
-Pavo
-Aceites y vinagres
-Aditivos
-Algo
-Aromatizantes y jabones
-Artículos de limpieza
-Belmondo
-Biodegradable
-Botiquín
-"Coberturas y conservas "
-Combustibles
-Cristalería y loza
-DESECHABLE
-Detergentes y jabones
-Electricidad
-Equipo menor
-Equipo para higiénicos
-Fumigación
-Fumigación
-Félix
-Gas
-Harinas preparadas
-Higiénicos
-Importada
-Jarcería
-Limpieza de campana
-Mantenimiento general
-"Masas preparadas "
-Mi compa Chava
-Mr Blancos
-"Pan dulce "
-Papelería
-Patagonia
-"Plantas, flores y hortalizas"
-Plomería
-Pollo
-"Postres Terminados "
-"Productos Marinos "
-Trampas de grasa
-agua
-alimentos instantáneos
-alimentos secos y deshidratados
-argentina
-artesanal
-asiática
-azúcar y endulzantes
-bebidas mezcladas
-café
-café y té preparados
-carnes frías
-cerdo
-"colorantes y deshidratados "
-comida preparada
-derivados de la leche
-derivados del pescado
-derivados vegetales
-destilados
-"dulces , chocolates y galletas "
-embutidos
-energizantes
-enlatados y conservas
-filetes y pescados frescos
-frutas
-frutas y verduras congeladas
-granos y semillas
-harinas
-helados y. nieves
-hielo
-hierba mate
-"jarabes, cremas y untables"
-jugos y néctares
-licores y cremas
-mariscos frescos
-mariscos y pescados congelados
-miel y jarabes
-nacional
-panadería empacada
-panadería natural
-pato
-refrescos
-res
-sakes
-Químicos
-Refrigeración
-"Saborizantes, pulpas y concentrados"
-Sartenes y ollas
-Semillas
-Servilletas y servitoallas
-"sal, condimentos y especias"
-"salsas , aderezos y untables"
-sopas y pastas
-test
-test 2
-tortillería
-tostadas y botanas
-té e infusiones
-verduras
-vinos
+name,departamentName
+Botiquín,EQUIPO Y UTENSILIOS
+Cristalería y loza,Gasto Operativo
+Equipo menor,Gasto Operativo
+Fumigación,Gasto Operativo
+Gas,Gasto Operativo
+Higiénicos,Gasto Operativo
+LOZA,CRISTALERÍA Y LOZA
+"Masas preparadas ",PANADERIA Y TORTILLERIA
+Papelería,Gasto Operativo
+"Productos Marinos ",DEL MAR
+Sartenes y ollas,EQUIPO Y UTENSILIOS
+aceites y vinagres,ABARROTES
+aditivos,ABARROTES
+agua,BEBIDAS SIN ALCOHOL
+alimentos instantáneos,ABARROTES
+alimentos secos y deshidratados,ABARROTES
+argentina,COMIDA INTERNACIONAL
+aromatizantes y jabones,HIGIÉNICOS
+artesanal,CERVEZA
+artículos de limpieza,Gasto Operativo
+artículos de oficina,PAPELERÍA
+asiática,COMIDA INTERNACIONAL
+azúcar y endulzantes,ABARROTES
+bebidas mezcladas,LICORES Y DESTILADOS
+belmondo,MERCH
+biodegradable,EMPAQUE
+borrego,CARNES Y AVES
+cabrito,CARNES Y AVES
+café,"CAFE, TE E INFUSIONES"
+café y té preparados,BEBIDAS SIN ALCOHOL
+carnes frías,SALCHICHONERÍA
+cerdo,CARNES Y AVES
+cigarros,ABARROTES
+coberturas,REPOSTERÍA Y POSTRES
+combustibles,ABARROTES
+comida preparada,COMIDA PREPARADA
+computo y tecnologia,PAPELERÍA
+concentrados para bebidas,ABARROTES
+conejo,CARNES Y AVES
+cordero,CARNES Y AVES
+derivados de la leche,LÁCTEOS Y HUEVO
+derivados del pescado,DEL MAR
+derivados vegetales,LÁCTEOS Y HUEVO
+desazolve,MANTENIMIENTO
+desechable,DESECHABLES
+destilados,LICORES Y DESTILADOS
+destilados sin alcohol,BEBIDAS SIN ALCOHOL
+detergentes y jabones,LIMPIEZA
+"dulces , chocolates y galletas ",REPOSTERÍA Y POSTRES
+electricidad,MANTENIMIENTO
+embutidos,SALCHICHONERÍA
+energizantes,BEBIDAS SIN ALCOHOL
+enlatados y conservas,ABARROTES
+equipo para higiénicos,HIGIÉNICOS
+equipos,MANTENIMIENTO
+felix,MERCH
+filetes y pescados frescos,DEL MAR
+frutas,FRUTAS Y VERDURAS
+frutas y verduras congelados,FRUTAS Y VERDURAS
+fumigación,MANTENIMIENTO
+granos y semillas,ABARROTES
+harinas,ABARROTES
+helados y nieves,REPOSTERÍA Y POSTRES
+hielo,HIELO
+hierba mate,"CAFE, TE E INFUSIONES"
+huevo y derivados,LÁCTEOS Y HUEVO
+importada,CERVEZA
+jarcería,LIMPIEZA
+jugos y néctares,BEBIDAS SIN ALCOHOL
+la clandestina,MERCH
+licores y cremas,LICORES Y DESTILADOS
+mariscos frescos,DEL MAR
+mariscos y pescados congelados,DEL MAR
+mariscos y pescados deshidratados,DEL MAR
+mi compa chava,MERCH
+"miel y jarabes ",ABARROTES
+mobiliario,EQUIPO Y UTENSILIOS
+nacional,CERVEZA
+palenquito,MERCH
+panadería empacada,PANADERIA Y TORTILLERIA
+panadería natural,PANADERIA Y TORTILLERIA
+papel y toallas,HIGIÉNICOS
+patagonia,MERCH
+pato,CARNES Y AVES
+pavo,CARNES Y AVES
+"plantas, flores y hortalizas",FRUTAS Y VERDURAS
+plomería,MANTENIMIENTO
+pollo,CARNES Y AVES
+"postres terminados ",REPOSTERÍA Y POSTRES
+pulpas naturales,FRUTAS Y VERDURAS
+químicos,LIMPIEZA
+refrescos,BEBIDAS SIN ALCOHOL
+refrigeracion,MANTENIMIENTO
+res,CARNES Y AVES
+saborizante y concentrados,REPOSTERÍA Y POSTRES
+sakes,VINOS Y SAKE
+"sal, condimentos y especias",ABARROTES
+"salsas , aderezos y untables",ABARROTES
+servicios generales,MANTENIMIENTO
+sopas y pastas,ABARROTES
+ternera,CARNES Y AVES
+tortillería,PANADERIA Y TORTILLERIA
+tostadas y botanas,PANADERIA Y TORTILLERIA
+té e infusiones,"CAFE, TE E INFUSIONES"
+verduras,FRUTAS Y VERDURAS
+vinos,VINOS Y SAKE
+wagyu japones,CARNES Y AVES
