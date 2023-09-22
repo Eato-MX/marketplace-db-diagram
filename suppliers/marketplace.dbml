@@ -238,6 +238,7 @@ Table providers {
     deletedAt timetz [null]
     isDeleted bool [default: false]
     // relations
+    users UUID [ref: <> users.id]
 }
 
 //Provider products
@@ -272,6 +273,30 @@ Table variants {
     brandId UUID [ref: > brands.id]
 }
 Ref: variants.id <> variant_tags.id
+
+/*****************************************************************************************
+*                                       Users  data                                      *
+*****************************************************************************************/
+
+// Tabla de usuarios
+Table users {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    firstName varchar(100) [not null]
+    lastName  varchar(100) [not null]
+    phone varchar(100) [not null]
+    email varchar(100) [not null]
+    active bool [default: false]
+    lastLoginAt timetz [default: `now()`]
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    inviteSentAt timetz [null] 
+    deletedAt timetz [null]
+    authId varchar(100)
+    veified bool [default: false]
+    // relations
+    roleId UUID [ref: > roles.id]
+    providers UUID [ref: <> providers.id]
+}
 
 /*****************************************************************************************
 *                                       Orders data                                      *
