@@ -15,7 +15,7 @@ Table taxes {
     quota bool [default:false]
     createdAt timetz [default: `now()`]
     updatedAt timetz [default: `now()`]
-    deletedAt timetz [null] 
+    deletedAt timetz [null]
     isDeleted bool [default: false]
 
     Note: 'Providers taxes'
@@ -202,48 +202,11 @@ Table variant_taxes {
     taxId UUID [ref: > taxes.id]
 }
 
-
-/*****************************************************************************************
-*                                     Providers data                                     *
-*****************************************************************************************/
-
-// Tax information
-Table provider_tax_information {
-    id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(255) [not null]
-    TaxId varchar(13) [not null, Note: 'RFC']
-    privateKeyPass varchar(255) [not null] // Consultar las opcions de seguridad
-    
-    createdAt timetz [default: `now()`]
-    updatedAt timetz [default: `now()`]
-    deletedAt timetz [null]
-    isDeleted bool [default: false]
-    // relations
-    fiscalRegimeId UUID [ref: > fiscal_regimes.id]
-    providerId UUID [ref: > providers.id]
-}
-
-// Enum de los Status de los proveedores
-Enum provider_status {
-    active
-    banned
-}
-// Provider information
-Table providers {
-    id UUID [pk, default: `uuid_generate_v4()`]
-    name varchar(128) [not null]
-    status provider_status
-    createdAt timetz [default: `now()`]
-    updatedAt timetz [default: `now()`]
-    deletedAt timetz [null]
-    isDeleted bool [default: false]
-    // relations
-    users UUID [ref: <> users.id]
-}
-
 //Provider products
-Table provider_products {
+Table products_providers {
     id UUID [pk, default: `uuid_generate_v4()`]
+    averagePrice decimal(12,6) [not null]
+    variantsQuantity int [not null]
     createdAt timetz [default: `now()`]
     updatedAt timetz [default: `now()`]
     deletedAt timetz [null]
@@ -274,6 +237,45 @@ Table variants {
 }
 Ref: variants.id <> variant_tags.id
 
+
+/*****************************************************************************************
+*                                     Providers data                                     *
+*****************************************************************************************/
+
+// Tax information
+Table provider_tax_information {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    name varchar(255) [not null]
+    TaxId varchar(13) [not null, Note: 'RFC']
+    privateKeyPass varchar(255) [not null] // Consultar las opcions de seguridad
+
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
+    // relations
+    fiscalRegimeId UUID [ref: > fiscal_regimes.id]
+    providerId UUID [ref: > providers.id]
+}
+
+// Enum de los Status de los proveedores
+Enum provider_status {
+    active
+    banned
+}
+// Provider information
+Table providers {
+    id UUID [pk, default: `uuid_generate_v4()`]
+    name varchar(128) [not null]
+    status provider_status
+    createdAt timetz [default: `now()`]
+    updatedAt timetz [default: `now()`]
+    deletedAt timetz [null]
+    isDeleted bool [default: false]
+    // relations
+    users UUID [ref: <> users.id]
+}
+
 /*****************************************************************************************
 *                                       Users  data                                      *
 *****************************************************************************************/
@@ -289,7 +291,7 @@ Table users {
     lastLoginAt timetz [default: `now()`]
     createdAt timetz [default: `now()`]
     updatedAt timetz [default: `now()`]
-    inviteSentAt timetz [null] 
+    inviteSentAt timetz [null]
     deletedAt timetz [null]
     authId varchar(100)
     veified bool [default: false]
@@ -358,7 +360,7 @@ Table client_tax_information {
     name varchar(255) [not null]
     rfc varchar(13) [not null, Note: 'RFC']
     adress varchar(512) [not null]
-    
+
     createdAt timetz [default: `now()`]
     updatedAt timetz [default: `now()`]
     deletedAt timetz [null]
